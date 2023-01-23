@@ -9,14 +9,13 @@ class TaskController extends Controller
 {
 public function store(Request $request){
    //print textfield output as a command
-   //dd($request->all());
 
    //meke Task kynne model name eka $task kynne hadana obj eka
    $task=new Tasks;
    
 // validation 
     $this->validate($request,[
-        //task=textfieldname in task.blade.php
+     
         'task'=>'required|max:100|min:5',
     ]);
 
@@ -29,11 +28,7 @@ public function store(Request $request){
 
 //database value print output ....Tasks mean->Model
     $data=Tasks::all();
-   // dd($data);
-
-    //nawatha me page eka load wenna 
-    //return redirect('/Task');
-    
+ 
     //Task-->Route   tasks-->varriable
     return view('Task')->with('tasks',$data);
     
